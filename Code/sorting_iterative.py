@@ -1,6 +1,5 @@
 #!python
 
-
 def is_sorted(items):
     """Return a boolean indicating whether given items are in sorted order.
     TODO: Running time: ??? Why and under what conditions?
@@ -45,7 +44,18 @@ def selection_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
+    for i in (len(item) -1): # for every element in in the list 
+        min_value = i #we set a min value to the i position - we want the default to be the minimum value in the list 
 
+        for j in range(i+1, len(items)): #for every element in the range of i + 1 (to the right) of the length of the list 
+            if items[j] < items[min_value]: #if the value of j position in the list is less than the value of the position of the min value 
+                min_value = j #replace the min vale to the value of the j position ~ we swap them
+
+        if min_value != i: #if the min value no longer equals i (default)
+            #if we find a value that has a lower value of than the default then we switch those items
+            items[min_value], items[i] = items[i], items[min_value]
+
+    return items # we return the list 
 
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
@@ -55,3 +65,13 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
+    for i in range(1, len(items)): #the first item in the list is in the sorted list because there is no item to the left of it ~ we ignore the first one and look at all the values after it
+        for i in items: #for every value in list 
+            value_to_sort = items[i] #variable to sort the list ~ we store the i of element on the list 
+
+            while items[i-1] > value_to_sort and i > 0: #while the item to the immediate left is greater than the value to sort (the item to the left is larger than the item to the right) i>0 because python allows neg indexing
+                items[i], items[i-1] = items[i-1], items[i] #we swap the values 
+                i = i - 1 #we continue the comparisons down the list - incrementing the stepping down the list by comparing the element to the one to it's immediate left 
+    return items #return the list 
+
+
