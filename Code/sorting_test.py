@@ -12,29 +12,25 @@ def test_is_sorted_on_sorted_integers():
     assert is_sorted([3, 4]) is True  # Duplicate items are in order
     assert is_sorted([3, 5]) is True
     assert is_sorted([3, 5, 7]) is True
-    
 
 def test_is_sorted_on_unsorted_integers():
     # Negative test cases (counterexamples) with lists of unsorted integers
     assert is_sorted([5, 3]) is False
     assert is_sorted([3, 5, 2]) is False
     assert is_sorted([7, 5, 3]) is False
-    
 
 def test_is_sorted_on_sorted_strings():
     # Positive test cases (examples) with lists of sorted strings
     assert is_sorted(['A']) is True  # Single item is trivially sorted
     assert is_sorted(['A', 'B']) is True  # Duplicate items are in order
     assert is_sorted(['A', 'C']) is True
-    assert is_sorted(['A', 'B', 'C']) is True
-    
+    assert is_sorted(['A', 'B', 'C']) is True   
 
 def test_is_sorted_on_unsorted_strings():
     # Negative test cases (counterexamples) with lists of unsorted strings
     assert is_sorted(['B', 'A']) is False
     assert is_sorted(['D', 'A', 'C']) is False
     assert is_sorted(['C', 'B', 'A']) is False
-    
 
 def test_sort_on_empty_list():
     items = []
@@ -51,7 +47,6 @@ def test_sort_on_small_lists_of_integers():
     items3 = [5, 7, 3]
     sort(items3)
     assert items3 == [3, 5, 7]
-
 
 def test_sort_on_lists_of_random_integers():
     # Generate list of 10 random integers from range [1...20]
@@ -71,8 +66,6 @@ def test_sort_on_lists_of_random_integers():
     sorted_items3 = sorted(items3)  # Copy
     sort(items3)  # Mutate
     assert items3 == sorted_items3
-
-
 
 def test_sort_on_small_lists_of_strings():
     items1 = ['A']
